@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucky — Reetuparna</title>
+  <meta name="description" content="A personal website dedicated to someone truly special." />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicon: heart emoji -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  BACKGROUND                                -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="bg-gradient"></div>
+  <div id="bg-slideshow" aria-hidden="true"></div>
+  <canvas id="hearts-canvas" aria-hidden="true"></canvas>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  BIRTHDAY BANNER                           -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="birthday-banner" role="banner" aria-live="polite"></div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  NAVIGATION                                -->
+  <!-- ═══════════════════════════════════════════ -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <a class="nav-logo" href="#hero">Lucky ♡</a>
+    <ul class="nav-links">
+      <li><a href="#about">About Her</a></li>
+      <li><a href="#music-section">Music</a></li>
+      <li><a href="#notes">Daily Notes</a></li>
+      <li><a href="#updates">Updates</a></li>
+      <li><a href="#timeline-section">Memories</a></li>
+      <li><a href="#travel">Travel</a></li>
+      <li><a href="#secret-section">Secret</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  HERO                                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-rose-glow" aria-hidden="true"></div>
+    <p class="hero-eyebrow">A website made with love, for</p>
+    <h1 class="hero-name">Lucky</h1>
+    <p class="hero-real-name">Reetuparna</p>
+    <p class="hero-tagline">
+      "You don't need anyone's world to revolve around you —<br>
+      but you've somehow made mine do exactly that."
+    </p>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  ABOUT HER                                 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="about" aria-label="About Lucky">
+    <div class="section">
+      <h2 class="section-title fade-in">About Her</h2>
+      <p class="section-subtitle fade-in">the things that make her, her</p>
+      <div class="divider"></div>
+      <div class="about-grid">
+
+        <div class="about-card glass fade-in">
+          <span class="icon">🎵</span>
+          <h3>Music Soul</h3>
+          <p>Music isn't just something she listens to — it's a language she feels. Every song becomes a little more beautiful when you share it with someone who truly loves music.</p>
+        </div>
+
+        <div class="about-card glass fade-in">
+          <span class="icon">👗</span>
+          <h3>Fashion & Grace</h3>
+          <p>She has an eye for beauty and carries every outfit with effortless grace. Especially sarees — she makes every saree look like it was woven just for her.</p>
+        </div>
+
+        <div class="about-card glass fade-in">
+          <span class="icon">✈️</span>
+          <h3>Wandering Spirit</h3>
+          <p>She loves to explore, to discover new places, and to carry the memories of every journey in her heart. The world is just a little more colorful when you're in it.</p>
+        </div>
+
+        <div class="about-card glass fade-in">
+          <span class="icon">💄</span>
+          <h3>Authentic Beauty</h3>
+          <p>She loves herself — fully and unapologetically. Her sense of style, her makeup, her confidence — all an expression of a person who knows exactly who she is.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  MUSIC PLAYER                              -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="music-section" aria-label="Music Player">
+    <div class="section">
+      <h2 class="section-title fade-in">Her Playlist 🎵</h2>
+      <p class="section-subtitle fade-in">songs that feel like her</p>
+      <div class="divider"></div>
+
+      <div class="music-player-wrap glass fade-in">
+        <!-- Visualizer bars -->
+        <div class="music-visualizer" aria-hidden="true">
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+
+        <!-- Track info -->
+        <div id="track-name" class="music-track-name">Select a song</div>
+        <div id="track-artist" class="music-track-artist">—</div>
+
+        <!-- Controls -->
+        <div class="music-controls">
+          <button id="prev-btn" class="music-btn" aria-label="Previous track">⏮</button>
+          <button id="play-btn" class="music-btn primary" aria-label="Play / Pause">▶</button>
+          <button id="next-btn" class="music-btn" aria-label="Next track">⏭</button>
+        </div>
+
+        <!-- Progress -->
+        <input type="range" id="progress-bar" class="music-progress" min="0" max="100" value="0" aria-label="Song progress" />
+        <div class="music-time">
+          <span id="current-time">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+
+        <!-- Playlist -->
+        <ul id="playlist" class="music-playlist" aria-label="Song playlist"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  DAILY NOTES                               -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="notes" aria-label="Daily Notes">
+    <div class="section">
+      <h2 class="section-title fade-in">Daily Notes 📝</h2>
+      <p class="section-subtitle fade-in">little thoughts, written just for her</p>
+      <div class="divider"></div>
+      <div id="notes-grid" class="notes-grid"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  SPECIAL UPDATES                           -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="updates" aria-label="Special Updates">
+    <div class="section">
+      <h2 class="section-title fade-in">Special Updates ✨</h2>
+      <p class="section-subtitle fade-in">moments worth marking</p>
+      <div class="divider"></div>
+      <div id="updates-list" class="updates-list"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  MEMORIES TIMELINE                         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="timeline-section" aria-label="Timeline of Memories">
+    <div class="section">
+      <h2 class="section-title fade-in">Memories & Thoughts 🌸</h2>
+      <p class="section-subtitle fade-in">a timeline of moments that mattered</p>
+      <div class="divider"></div>
+      <div id="timeline" class="timeline"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  TRAVEL                                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="travel" aria-label="Travel Places">
+    <div class="section">
+      <h2 class="section-title fade-in">Places She Loves 🗺️</h2>
+      <p class="section-subtitle fade-in">her heart has been to so many places</p>
+      <div class="divider"></div>
+      <div id="travel-grid" class="travel-grid"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  SECRET MESSAGE                            -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="secret-section" aria-label="Secret Message">
+    <div class="section">
+      <h2 class="section-title fade-in">A Letter 💌</h2>
+      <p class="section-subtitle fade-in">for her eyes only</p>
+      <div class="divider"></div>
+
+      <button id="secret-btn" aria-label="Reveal secret message">
+        <span>Reveal Secret Message 💌</span>
+      </button>
+
+      <div id="secret-message-box" class="glass" aria-live="polite" role="region" aria-label="Secret letter">
+        <p class="letter-text"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  FOOTER                                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-name">Lucky ♡</div>
+    <p class="footer-text">
+      Made with <span class="footer-heart">♥</span> for Reetuparna<br>
+      Not because I expect anything — but because you deserve something beautiful.
+    </p>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  SCRIPTS                                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

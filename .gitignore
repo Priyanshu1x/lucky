@@ -1,0 +1,4 @@
+# Don't push these to GitHub
+Thumbs.db
+.DS_Store
+*.log
