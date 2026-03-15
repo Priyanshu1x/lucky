@@ -258,14 +258,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── 9. SECRET MESSAGE ────────────────────────────────────
   const secretBtn = document.getElementById('secret-btn');
+  const secretPasswordBox = document.getElementById('secret-password-box');
+  const secretInput = document.getElementById('secret-input');
+  const secretSubmitBtn = document.getElementById('secret-submit-btn');
+  const secretError = document.getElementById('secret-error');
   const secretBox = document.getElementById('secret-message-box');
+
   secretBtn.addEventListener('click', () => {
-    secretBox.classList.toggle('visible');
-    secretBox.querySelector('.letter-text').innerHTML = SECRET_MESSAGE;
-    secretBtn.querySelector('span').textContent = secretBox.classList.contains('visible') ? 'Close the letter 💌' : 'Reveal Secret Message 💌';
     if (secretBox.classList.contains('visible')) {
-      secretBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Hide the message
+      secretBox.classList.remove('visible');
+      secretPasswordBox.style.display = 'none';
+      secretInput.value = '';
+      secretError.style.display = 'none';
+      secretBtn.querySelector('span').textContent = 'Reveal Secret Message 💌';
+    } else if (secretPasswordBox.style.display === 'block') {
+      // Hide password box if already open
+      secretPasswordBox.style.display = 'none';
+    } else {
+      // Show password box
+      secretPasswordBox.style.display = 'block';
+      secretPasswordBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      secretInput.focus();
     }
+  });
+
+  const checkPassword = () => {
+    if (secretInput.value === SECRET_CODE) {
+      secretPasswordBox.style.display = 'none';
+      secretError.style.display = 'none';
+      secretBox.classList.add('visible');
+      secretBox.querySelector('.letter-text').innerHTML = SECRET_MESSAGE;
+      secretBtn.querySelector('span').textContent = 'Close the letter 💌';
+      secretBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      secretError.style.display = 'block';
+    }
+  };
+
+  secretSubmitBtn.addEventListener('click', checkPassword);
+  secretInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') checkPassword();
   });
 
   // ── 10. SCROLL ANIMATIONS (Intersection Observer) ────────

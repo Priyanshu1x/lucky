@@ -80,6 +80,9 @@ const TRAVEL_PLACES = [
 ];
 
 // ── SECRET MESSAGE ───────────────────────────────────────────
+// The code needed to reveal the hidden message
+const SECRET_CODE = "13052005";
+
 // The hidden message she sees when she clicks the secret button
 const SECRET_MESSAGE = `
   Hey Lucky... 💌<br><br>

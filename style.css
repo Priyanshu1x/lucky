@@ -592,6 +592,26 @@ body {
 #secret-btn:hover::before { transform: scaleX(1); }
 #secret-btn:hover { color: white; border-color: var(--deep-rose); box-shadow: 0 8px 30px rgba(192,54,90,0.4); }
 #secret-btn span { position: relative; z-index: 1; }
+
+#secret-input {
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 1px solid var(--rose);
+  background: rgba(13, 4, 8, 0.5);
+  color: var(--text-light);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  outline: none;
+  text-align: center;
+  transition: var(--transition);
+  max-width: 200px;
+  width: 100%;
+}
+#secret-input:focus {
+  border-color: var(--deep-rose);
+  box-shadow: 0 0 10px rgba(232,115,138,0.4);
+}
+
 #secret-message-box {
   display: none;
   margin-top: 40px;

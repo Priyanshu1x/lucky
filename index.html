@@ -198,6 +198,13 @@
         <span>Reveal Secret Message 💌</span>
       </button>
 
+      <div id="secret-password-box" class="glass" style="display: none; margin-top: 20px; padding: 20px; text-align: center; max-width: 400px; margin-left: auto; margin-right: auto;">
+        <p style="margin-bottom: 15px; color: var(--text-light);">Enter the magic code to unlock:</p>
+        <input type="password" id="secret-input" placeholder="Code..." />
+        <button id="secret-submit-btn" class="music-btn primary" style="width: auto; height: auto; padding: 10px 24px; border-radius: 25px; font-size: 0.95rem; margin-top: 15px;">Unlock 🔓</button>
+        <p id="secret-error" style="color: var(--rose); font-size: 0.9rem; margin-top: 12px; display: none;">Incorrect code. Try again.</p>
+      </div>
+
       <div id="secret-message-box" class="glass" aria-live="polite" role="region" aria-label="Secret letter">
         <p class="letter-text"></p>
       </div>
