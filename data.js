@@ -83,6 +83,12 @@ const TRAVEL_PLACES = [
 // The code needed to reveal the hidden message
 const SECRET_CODE = "13052005";
 
+// Photos to show inside the secret message (optional)
+const SECRET_PHOTOS = [
+  "photos/guitar.jpg",
+  "photos/laptop.jpg",
+];
+
 // The hidden message she sees when she clicks the secret button
 const SECRET_MESSAGE = `
   Hey Lucky... 💌<br><br>

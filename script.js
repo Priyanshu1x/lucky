@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
       playBtn.innerHTML = '▶';
       bars.forEach(b => b.classList.remove('playing'));
     } else {
-      audio.play().catch(() => {});
+      audio.play().catch(() => { });
       playBtn.innerHTML = '⏸';
       bars.forEach(b => b.classList.add('playing'));
     }
@@ -147,12 +147,12 @@ document.addEventListener('DOMContentLoaded', () => {
   prevBtn.addEventListener('click', () => {
     currentTrack = (currentTrack - 1 + MUSIC_LIST.length) % MUSIC_LIST.length;
     loadTrack(currentTrack);
-    if (isPlaying) audio.play().catch(() => {});
+    if (isPlaying) audio.play().catch(() => { });
   });
   nextBtn.addEventListener('click', () => {
     currentTrack = (currentTrack + 1) % MUSIC_LIST.length;
     loadTrack(currentTrack);
-    if (isPlaying) audio.play().catch(() => {});
+    if (isPlaying) audio.play().catch(() => { });
   });
   audio.addEventListener('timeupdate', () => {
     if (!audio.duration) return;
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
   audio.addEventListener('ended', () => {
     currentTrack = (currentTrack + 1) % MUSIC_LIST.length;
     loadTrack(currentTrack);
-    audio.play().catch(() => {});
+    audio.play().catch(() => { });
   });
 
   // Build playlist
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
       li.addEventListener('click', () => {
         currentTrack = i;
         loadTrack(i);
-        if (!isPlaying) togglePlay(); else audio.play().catch(() => {});
+        if (!isPlaying) togglePlay(); else audio.play().catch(() => { });
       });
       playlistEl.appendChild(li);
     });
