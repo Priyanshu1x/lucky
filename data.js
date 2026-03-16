@@ -47,6 +47,11 @@ const MUSIC_LIST = [
 // date: "YYYY-MM-DD", time: "HH:MM AM/PM"
 const DAILY_NOTES = [
   {
+    date: "2026-03-16",
+    time: "11:52 PM",
+    text: "Write your note for today here! ✨"
+  },
+  {
     date: "2026-03-15",
     time: "11:00 AM",
     text: "Today I decided to build something for you — not because I expect anything in return, but because some feelings are too big to keep inside.🌸"

@@ -288,7 +288,20 @@ document.addEventListener('DOMContentLoaded', () => {
       secretPasswordBox.style.display = 'none';
       secretError.style.display = 'none';
       secretBox.classList.add('visible');
-      secretBox.querySelector('.letter-text').innerHTML = SECRET_MESSAGE;
+      
+      let messageHtml = SECRET_MESSAGE;
+      
+      // Inject photos if they exist
+      if (typeof SECRET_PHOTOS !== 'undefined' && SECRET_PHOTOS.length > 0) {
+        let photosHtml = '<div class="secret-photos" style="display: flex; gap: 15px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap;">';
+        SECRET_PHOTOS.forEach(photo => {
+          photosHtml += `<img src="${photo}" alt="Secret Memory" style="max-width: 100%; width: 200px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">`;
+        });
+        photosHtml += '</div>';
+        messageHtml = photosHtml + messageHtml;
+      }
+
+      secretBox.querySelector('.letter-text').innerHTML = messageHtml;
       secretBtn.querySelector('span').textContent = 'Close the letter 💌';
       secretBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
