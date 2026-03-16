@@ -187,24 +187,69 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── 5. DAILY NOTES ───────────────────────────────────────
   const notesGrid = document.getElementById('notes-grid');
+  const allNotesList = document.getElementById('all-notes-list');
+  const showAllNotesBtn = document.getElementById('show-all-notes-btn');
+  const allNotesModal = document.getElementById('all-notes-modal');
+  const closeNotesModal = document.getElementById('close-notes-modal');
+
+  // Helper to create a note card HTML
+  function createNoteCardHTML(note) {
+    const dateObj = new Date(note.date);
+    const dateStr = dateObj.toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    return `
+      <div class="note-meta">
+        <div class="note-dot"></div>
+        <span class="note-date">${dateStr}</span>
+        <span class="note-time">· ${note.time}</span>
+      </div>
+      <p class="note-text">${note.text}</p>
+    `;
+  }
+
   if (DAILY_NOTES && DAILY_NOTES.length > 0) {
+    // 1. Render ONLY the newest note on the main page
+    const firstNote = DAILY_NOTES[0];
+    const card = document.createElement('div');
+    card.className = 'note-card glass fade-in visible';
+    card.innerHTML = createNoteCardHTML(firstNote);
+    notesGrid.appendChild(card);
+
+    // 2. Render ALL notes inside the modal
     DAILY_NOTES.forEach(note => {
-      const card = document.createElement('div');
-      card.className = 'note-card glass fade-in';
-      const dateObj = new Date(note.date);
-      const dateStr = dateObj.toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-      card.innerHTML = `
-        <div class="note-meta">
-          <div class="note-dot"></div>
-          <span class="note-date">${dateStr}</span>
-          <span class="note-time">· ${note.time}</span>
-        </div>
-        <p class="note-text">${note.text}</p>
-      `;
-      notesGrid.appendChild(card);
+      const modalCard = document.createElement('div');
+      modalCard.className = 'note-card glass'; // reused glass styling
+      modalCard.innerHTML = createNoteCardHTML(note);
+      allNotesList.appendChild(modalCard);
     });
+
+    // Modal Events
+    showAllNotesBtn.addEventListener('click', () => {
+      allNotesModal.style.display = 'flex';
+      // tiny delay to allow display flex to apply before opacity transition
+      setTimeout(() => {
+        allNotesModal.classList.add('show');
+      }, 10);
+      document.body.style.overflow = 'hidden'; // prevent background scrolling
+    });
+
+    closeNotesModal.addEventListener('click', () => {
+      allNotesModal.classList.remove('show');
+      setTimeout(() => {
+        allNotesModal.style.display = 'none';
+      }, 400); // match transition time
+      document.body.style.overflow = 'auto'; // restore scrolling
+    });
+
+    // Close on outside click
+    window.addEventListener('click', (e) => {
+      if (e.target == allNotesModal) {
+        closeNotesModal.click();
+      }
+    });
+
   } else {
     notesGrid.innerHTML = `<p style="color:var(--text-muted);text-align:center;grid-column:1/-1">Add your first note in data.js 💕</p>`;
+    showAllNotesBtn.style.display = 'none';
   }
 
   // ── 6. SPECIAL UPDATES ───────────────────────────────────
