@@ -49,7 +49,7 @@ const DAILY_NOTES = [
   {
     date: "2026-03-16",
     time: "11:52 PM",
-    text: "Write your note for today here! ✨"
+    text: "Today there is nothing to say  but i have a line for you 'Everyday you are in my head ,when night fall and the world get quit my mind doesn't it fills with the thoughts of you. You are the last whisper in my mind before sleep and first thought when wake up'"
   },
   {
     date: "2026-03-15",
@@ -73,7 +73,7 @@ const SPECIAL_UPDATES = [
 // ── TIMELINE OF MEMORIES / THOUGHTS ─────────────────────────
 // Add memories, moments, or thoughts. Newest first.
 const TIMELINE = [
-  { date: "March 2026", text: "Built this website. My first big effort to show how much I admire you. 💻" },
+  { date: "March 2026", text: "on september 30 2025 ,we had a  meetup and the fact is I had planed that meetup to see her .I was super excited that day and the beautiful thing that happened is she ask me to pickup her and that 15 minutes was my best moment yet.I will never forget that moment" },
   // Add more memories here ↓
 ];
 
