@@ -47,6 +47,11 @@ const MUSIC_LIST = [
 // date: "YYYY-MM-DD", time: "HH:MM AM/PM"
 const DAILY_NOTES = [
   {
+    date: "2026-03-17",
+    time: "11:50 PM",
+    text: "Today also there is no update from her side :(...but i got another line for her 'i will look for you in every lifetime and love you there'"
+  },
+  {
     date: "2026-03-16",
     time: "11:52 PM",
     text: "Today there is nothing to say  but i have a line for you 'Everyday you are in my head ,when night fall and the world get quit my mind doesn't it fills with the thoughts of you. You are the last whisper in my mind before sleep and first thought when wake up'"
