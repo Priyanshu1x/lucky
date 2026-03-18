@@ -47,6 +47,11 @@ const MUSIC_LIST = [
 // date: "YYYY-MM-DD", time: "HH:MM AM/PM"
 const DAILY_NOTES = [
   {
+    date: "2026-03-18",
+    time: "11:48 PM",
+    text: "She's not very active on Instagram, but I still find myself opening it again and again, just to see if she's posted something. Sometimes I even check her reposts, trying to understand her a little better. Maybe it sounds like stalking but to me, it's just a quiet kind of care. Even today, she reposted something random, and it had nothing to do with me… yet here I am, ending the day just looking at her photos :)"
+  },
+  {
     date: "2026-03-17",
     time: "11:50 PM",
     text: "Today also there is no update from her side :(...but i got another line for her 'i will look for you in every lifetime and love you there'"
