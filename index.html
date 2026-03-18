@@ -272,15 +272,15 @@
   <script src="data.js"></script>
   <script src="script.js"></script>
 
-  <!-- ── VISITOR COUNTER (CountAPI) ──────────────────────────────── -->
+  <!-- ── VISITOR COUNTER ──────────────────────────────────────────── -->
   <!-- 👁️ Silently counts visits. Only visible to YOU in the console  -->
-  <!-- To check count: open F12 → Console, or visit this URL:        -->
-  <!-- https://api.countapi.xyz/get/lucky-priyanshu/visits           -->
+  <!-- To check count: open Ctrl+Shift+J → look for the pink line    -->
+  <!-- Or visit: https://api.counterapi.dev/v1/lucky-priyanshu/visits -->
   <script>
-    fetch('https://api.countapi.xyz/hit/lucky-priyanshu/visits')
+    fetch('https://api.counterapi.dev/v1/lucky-priyanshu/visits/up')
       .then(res => res.json())
       .then(data => {
-        console.log('%c👁️ Total visits to this website: ' + data.value, 'color: #ff6b9d; font-size: 14px; font-weight: bold;');
+        console.log('%c👁️ Total visits to this website: ' + data.count, 'color: #ff6b9d; font-size: 14px; font-weight: bold;');
       })
       .catch(() => { /* silent fail — website still works perfectly */ });
   </script>
