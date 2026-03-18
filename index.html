@@ -8,6 +8,17 @@
   <meta name="description" content="A personal website dedicated to someone truly special." />
   <link rel="stylesheet" href="style.css" />
 
+  <!-- ── GOOGLE ANALYTICS ─────────────────────────────────── -->
+  <!-- 👁️ Tracks visitors silently — only YOU can see stats   -->
+  <!-- Go to: https://analytics.google.com to view the data   -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G90BTG2V1C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G90BTG2V1C');
+  </script>
+
   <!-- Favicon: heart emoji -->
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>" />
@@ -260,6 +271,19 @@
   <!-- ═══════════════════════════════════════════ -->
   <script src="data.js"></script>
   <script src="script.js"></script>
+
+  <!-- ── VISITOR COUNTER (CountAPI) ──────────────────────────────── -->
+  <!-- 👁️ Silently counts visits. Only visible to YOU in the console  -->
+  <!-- To check count: open F12 → Console, or visit this URL:        -->
+  <!-- https://api.countapi.xyz/get/lucky-priyanshu/visits           -->
+  <script>
+    fetch('https://api.countapi.xyz/hit/lucky-priyanshu/visits')
+      .then(res => res.json())
+      .then(data => {
+        console.log('%c👁️ Total visits to this website: ' + data.value, 'color: #ff6b9d; font-size: 14px; font-weight: bold;');
+      })
+      .catch(() => { /* silent fail — website still works perfectly */ });
+  </script>
 
 </body>
 
