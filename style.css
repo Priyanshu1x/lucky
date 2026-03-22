@@ -283,6 +283,40 @@ body {
   }
 }
 
+/* ── FAIRY MOON DECORATION ──────────────────────────────── */
+.hero-fairy-moon {
+  position: absolute;
+  top: 0;
+  right: 16px;
+  width: 175px;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 0 18px rgba(245, 210, 80, 0.28));
+  animation: fairyFloat 6s ease-in-out infinite;
+}
+
+@keyframes fairyFloat {
+  0%, 100% { transform: translateY(0);   }
+  50%       { transform: translateY(-8px); }
+}
+
+.fairy-star {
+  animation: starTwinkle 2.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 1;    transform: scale(1);    }
+  50%       { opacity: 0.3;  transform: scale(0.7);  }
+}
+
+@media (max-width: 768px) {
+  .hero-fairy-moon {
+    width: 130px;
+    right: 8px;
+  }
+}
+
 .hero-eyebrow {
   font-family: 'Dancing Script', cursive;
   font-size: clamp(1.2rem, 3vw, 1.6rem);
