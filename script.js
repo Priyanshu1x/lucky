@@ -38,7 +38,103 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ── 3. FLOATING HEARTS ───────────────────────────────────
+  // ── 3. MOON + STARS CANVAS ───────────────────────────────
+  (function initSky() {
+    const skyCanvas = document.getElementById('sky-canvas');
+    if (!skyCanvas) return;
+    const skyCtx = skyCanvas.getContext('2d');
+
+    function resize() {
+      skyCanvas.width = window.innerWidth;
+      skyCanvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    // Stars — scattered in top ~30% of screen (between clouds)
+    const stars = Array.from({ length: 65 }, () => ({
+      x: Math.random(),
+      y: Math.random() * 0.28,
+      r: Math.random() * 1.1 + 0.3,
+      baseAlpha: Math.random() * 0.45 + 0.25,
+      phase: Math.random() * Math.PI * 2,
+      speed: 0.008 + Math.random() * 0.006,
+    }));
+
+    function drawMoon(ctx, w, h) {
+      // Responsive moon size — bigger on mobile (portrait)
+      const r = Math.min(w, h) * (w < 600 ? 0.10 : 0.065);
+      const cx = w * 0.84;
+      const cy = h * (w < 600 ? 0.07 : 0.10);
+
+      // Outer warm glow halo
+      const glow = ctx.createRadialGradient(cx, cy, r * 0.5, cx, cy, r * 3.2);
+      glow.addColorStop(0,   'rgba(245, 215, 90,  0.20)');
+      glow.addColorStop(0.4, 'rgba(240, 190, 60,  0.09)');
+      glow.addColorStop(1,   'rgba(230, 170, 50,  0)');
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r * 3.2, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Golden moon body
+      ctx.save();
+      const moonGrad = ctx.createRadialGradient(cx + r * 0.2, cy - r * 0.15, 0, cx, cy, r);
+      moonGrad.addColorStop(0,   '#fffacc');
+      moonGrad.addColorStop(0.3, '#f5d060');
+      moonGrad.addColorStop(0.7, '#d4940a');
+      moonGrad.addColorStop(1,   '#a06008');
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.fillStyle = moonGrad;
+      ctx.fill();
+
+      // Crescent cutout
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(cx - r * 0.32, cy - r * 0.06, r * 0.84, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0,0,0,1)';
+      ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.restore();
+    }
+
+    function drawStars(ctx, w, h) {
+      stars.forEach(star => {
+        star.phase += star.speed;
+        const alpha = star.baseAlpha * (0.5 + 0.5 * Math.sin(star.phase));
+        const x = star.x * w;
+        const y = star.y * h;
+
+        // Soft glow halo
+        const grad = ctx.createRadialGradient(x, y, 0, x, y, star.r * 4);
+        grad.addColorStop(0, `rgba(255, 248, 210, ${alpha * 0.85})`);
+        grad.addColorStop(1, 'rgba(255, 245, 200, 0)');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(x, y, star.r * 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Star core
+        ctx.fillStyle = `rgba(255, 252, 235, ${Math.min(alpha * 1.6, 0.95)})`;
+        ctx.beginPath();
+        ctx.arc(x, y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    function animate() {
+      const w = skyCanvas.width;
+      const h = skyCanvas.height;
+      skyCtx.clearRect(0, 0, w, h);
+      drawStars(skyCtx, w, h);
+      drawMoon(skyCtx, w, h);
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  })();
+
+  // ── 4. FLOATING HEARTS ───────────────────────────────────
   const canvas = document.getElementById('hearts-canvas');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
