@@ -103,66 +103,7 @@ body {
   pointer-events: none;
 }
 
-/* ── MOON + STARS CANVAS ────────────────────────────────── */
-#sky-canvas {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-}
 
-/* ── DARK PURPLE CLOUDS ─────────────────────────────────── */
-#sky-clouds {
-  position: fixed;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.sky-cloud {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(10px);
-}
-
-/* Top-left cloud cluster */
-.sky-cloud.c1 {
-  width: 280px; height: 110px;
-  top: -30px; left: -40px;
-  background: radial-gradient(ellipse at 50% 60%, #3b2260 0%, #1e0f38 70%, transparent 100%);
-  border-radius: 60% 40% 55% 45%;
-  opacity: 0.92;
-}
-.sky-cloud.c2 {
-  width: 200px; height: 80px;
-  top: 55px; left: 20px;
-  background: radial-gradient(ellipse at 50% 50%, #2d1a50 0%, #160b30 70%, transparent 100%);
-  border-radius: 50% 60% 40% 55%;
-  opacity: 0.85;
-}
-
-/* Top-right cloud cluster (below/around moon) */
-.sky-cloud.c3 {
-  width: 260px; height: 100px;
-  top: -20px; right: -40px;
-  background: radial-gradient(ellipse at 50% 60%, #3b2260 0%, #1e0f38 70%, transparent 100%);
-  border-radius: 45% 55% 60% 40%;
-  opacity: 0.88;
-}
-.sky-cloud.c4 {
-  width: 190px; height: 75px;
-  top: 60px; right: 10px;
-  background: radial-gradient(ellipse at 50% 50%, #2d1a50 0%, #160b30 70%, transparent 100%);
-  border-radius: 55% 45% 40% 60%;
-  opacity: 0.80;
-}
-.sky-cloud.c5 {
-  width: 160px; height: 60px;
-  top: 110px; right: 80px;
-  background: radial-gradient(ellipse at 50% 50%, #251540 0%, #100828 70%, transparent 100%);
-  border-radius: 50% 50% 45% 55%;
-  opacity: 0.70;
-}
 
 /* ── FLOATING HEARTS CANVAS ─────────────────────────────── */
 #hearts-canvas {
