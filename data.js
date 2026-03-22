@@ -47,6 +47,11 @@ const MUSIC_LIST = [
 // date: "YYYY-MM-DD", time: "HH:MM AM/PM"
 const DAILY_NOTES = [
   {
+    date: "2026-03-21",
+    time: "12:06 AM",
+    text: "Today there was a celebrity night in our college and and the singers every song was reminding me of herself,and here also i was really expecting her but its simply impossible ,whatever i hope she is happy wherever she is...  ;) "
+  },
+  {
     date: "2026-03-20",
     time: "11:55 PM",
     text: "I guess something happened to her today idk but she removed all her instagram posts if i could get to know what happened may be i could have help her but now i can only hope nothing had happened to her ...GOD keep her happy and bless her always... :)"
